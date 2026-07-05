@@ -1,0 +1,655 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #fff8f0;
+    min-height: 100vh;
+    color: #333;
+}
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+}
+
+.auth-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 360px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.auth-logo {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.auth-container h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    text-align: left;
+}
+
+.auth-form .form-group {
+    margin-bottom: 15px;
+}
+
+.auth-form .form-group label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.auth-form .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+.auth-form .form-group input:focus {
+    outline: none;
+    border-color: #ff6b35;
+}
+
+.auth-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.auth-switch {
+    font-size: 13px;
+    color: #ff6b35;
+    text-align: center;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.auth-switch:hover {
+    text-decoration: underline;
+}
+
+.logout-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#app {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff8f0;
+    min-height: 100vh;
+    position: relative;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    padding-top: 24px;
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.header .title {
+    font-size: 18px;
+    font-weight: 600;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-right {
+    width: 36px;
+}
+
+.page {
+    display: none;
+    padding-bottom: 80px;
+}
+
+.page.active {
+    display: block;
+}
+
+.hero-card {
+    background: white;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.1);
+}
+
+.hero-card h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.hero-card p {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 4px;
+}
+
+.menu-grid {
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.menu-card {
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+    border-radius: 16px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+}
+
+.menu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+.menu-card.horizontal {
+    grid-column: span 2;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.menu-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-card.horizontal .menu-icon {
+    margin-bottom: 0;
+    margin-right: 15px;
+}
+
+.menu-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.menu-label {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.section-header {
+    padding: 20px;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.category-tabs {
+    display: flex;
+    padding: 0 20px;
+    gap: 10px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.category-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab {
+    padding: 10px 20px;
+    background: rgba(255, 154, 68, 0.1);
+    border: none;
+    border-radius: 20px;
+    color: #ff6b35;
+    font-size: 14px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab.active {
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+    color: white;
+}
+
+.tab:hover {
+    opacity: 0.8;
+}
+
+.food-list {
+    padding: 0 20px;
+}
+
+.food-item {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.food-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.food-info {
+    flex: 1;
+}
+
+.food-info h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.food-desc {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.food-price {
+    font-size: 18px;
+    color: #ff6b35;
+    font-weight: 600;
+}
+
+.food-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.control-btn.plus {
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+    color: white;
+}
+
+.control-btn.minus {
+    background: #f0f0f0;
+    color: #999;
+}
+
+.control-btn:hover {
+    transform: scale(1.1);
+}
+
+.food-controls .quantity {
+    min-width: 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.total-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #666;
+}
+
+.total-price {
+    font-size: 18px;
+    color: #ff6b35;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.book-btn {
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.book-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+}
+
+.book-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.profile-card {
+    background: white;
+    margin: 20px;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.profile-card h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ff6b35;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+.save-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.order-list {
+    padding: 20px;
+}
+
+.order-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.order-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.order-status.pending {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+}
+
+.order-status.confirmed {
+    background: rgba(33, 150, 243, 0.15);
+    color: #2196f3;
+}
+
+.order-status.completed {
+    background: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+}
+
+.order-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.order-content img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.order-info {
+    flex: 1;
+}
+
+.order-info h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.order-info p {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+.order-price {
+    font-size: 18px;
+    color: #ff6b35;
+    font-weight: 600;
+}
+
+.order-btn {
+    width: 100%;
+    background: rgba(255, 154, 68, 0.1);
+    color: #ff6b35;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.order-btn:hover {
+    background: rgba(255, 154, 68, 0.2);
+}
+
+.order-btn.disabled {
+    background: #f5f5f5;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.contact-bar {
+    padding: 0 20px 80px;
+}
+
+.contact-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.empty-state p {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.empty-btn {
+    background: linear-gradient(135deg, #ff9a44 0%, #ff6b35 100%);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
